@@ -1,7 +1,7 @@
 import javax.persistence.*;
 
 @Entity
-@Table(name="subscription")
+@Table(name = "subscription")
 public class Subscription {
 
     @Id

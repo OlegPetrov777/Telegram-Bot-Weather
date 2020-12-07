@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//oleg
 public class Bot extends TelegramLongPollingBot {
     public static void main(String[] args) {
         ApiContextInitializer.init();   //иницилизация АПИ
