@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Telegram-Bot-Weather" />
         <module name="weather_bot" />
       </profile>
     </annotationProcessing>
