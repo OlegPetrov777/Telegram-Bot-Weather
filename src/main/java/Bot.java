@@ -95,7 +95,13 @@ public class Bot extends TelegramLongPollingBot {
                         sendMsg(message, "Лучше напиши свой город ✍️\nИ нажми кнопку под сообщением \uD83D\uDE42");
                         break;
                     case "Проверить подписку":
-                        sendMsg(message, File_Writer.Check(String.valueOf(message.getChatId())));
+                        //sendMsg(message, File_Writer.Check(String.valueOf(message.getChatId())));
+                        try {
+                            execute(sendInlineKeyBoardMessage_2(update.getMessage().getChatId(),
+                                    File_Writer.Check(String.valueOf(message.getChatId()))));
+                        } catch (TelegramApiException e) {
+                            e.printStackTrace();
+                        }
                         break;
                     default:
                         try {
@@ -147,6 +153,28 @@ public class Bot extends TelegramLongPollingBot {
         keyboardRowList.add(keyboardSecndRow);
         keyboardRowList.add(keyboardThirdRow);
         replyKeyboardMarkup.setKeyboard(keyboardRowList); // установка списка на клаве
+    }
+
+
+    public static SendMessage sendInlineKeyBoardMessage_2(long chatId, String text) {
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();  // объект разметки
+
+        InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();  // Кнопка 1
+
+        inlineKeyboardButton1.getSwitchInlineQuery();
+        inlineKeyboardButton1.setText("Отписаться");  // txt 2
+        inlineKeyboardButton1.setCallbackData("Вы отписались от города " +
+                text.split(" ")[4]);
+
+        List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();  // создал ряды (1 и 2)
+        keyboardButtonsRow1.add(inlineKeyboardButton1);  // добавил в них наши по кнопке
+
+        List<List<InlineKeyboardButton>> rowList = new ArrayList<>(); // лист с рядами
+        rowList.add(keyboardButtonsRow1);  // запихиваем ряды в лимт
+
+        inlineKeyboardMarkup.setKeyboard(rowList);  // установка кнопки в обьект разметки клавиатуры
+        return new SendMessage().setChatId(chatId).
+                setText(text).setReplyMarkup(inlineKeyboardMarkup);  // отправка сообщения к которому крепятся кнопки
     }
 
 
