@@ -3,15 +3,14 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+
 
 public class Weather {
     public static String getWeatherNow(String message, Model model) throws IOException {
         String API_ID = "dc633a261da8fc3210fde781160bf996";
-        URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + message +
-                "&units=metric&appid=" + API_ID + "&lang=ru");
+        URL url = new URL(" ");
 
         Scanner in = new Scanner((InputStream) url.getContent());
         String result = "";
@@ -87,43 +86,43 @@ public class Weather {
                 " \uD83D\uDCC6\n\n   " +
 
                 "⏰ " + time[0].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[0] + "°С  —  " + temp_max[0] + "°С\n" +
-                "Влажнось: " + humidity[0] + "%\n" +
-                "Погода: " + weather[0] + "\n\n   " +
+                "\uD83C\uDF21 Температура: " + temp_min[0] + "°С  —  " + temp_max[0] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[0] + "%\n" +
+                "⛅️ Погода: " + weather[0] + "\n\n   " +
 
                 "⏰ " + time[1].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[1] + "°С  —  " + temp_max[1] + "°С\n" +
-                "Влажнось: " + humidity[1] + "%\n" +
-                "Погода: " + weather[1] + "\n\n   " +
+                "\uD83C\uDF21 Температура: " + temp_min[1] + "°С  —  " + temp_max[1] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[1] + "%\n" +
+                "⛅️ Погода: " + weather[1] + "\n\n   " +
 
                 "⏰ " + time[2].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[2] + "°С  —  " + temp_max[2] + "°С\n" +
-                "Влажнось: " + humidity[2] + "%\n" +
-                "Погода: " + weather[2] + "\n\n   " +
+                "\uD83C\uDF21 Температура: " + temp_min[2] + "°С  —  " + temp_max[2] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[2] + "%\n" +
+                "⛅️ Погода: " + weather[2] + "\n\n   " +
 
                 "⏰ " + time[3].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[3] + "°С  —  " + temp_max[3] + "°С\n" +
-                "Влажнось: " + humidity[3] + "%\n" +
-                "Погода: " + weather[3] + "\n\n   " +
+                "\uD83C\uDF21 Температура: " + temp_min[3] + "°С  —  " + temp_max[3] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[3] + "%\n" +
+                "⛅️ Погода: " + weather[3] + "\n\n   " +
 
                 "⏰ " + time[4].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[4] + "°С  —  " + temp_max[4] + "°С\n" +
-                "Влажнось: " + humidity[4] + "%\n" +
-                "Погода: " + weather[4] + "\n\n   " +
+                "\uD83C\uDF21 Температура: " + temp_min[4] + "°С  —  " + temp_max[4] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[4] + "%\n" +
+                "⛅️ Погода: " + weather[4] + "\n\n   " +
 
                 "⏰ " + time[5].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[5] + "°С  —  " + temp_max[5] + "°С\n" +
-                "Влажнось: " + humidity[5] + "%\n" +
-                "Погода: " + weather[5] + "\n\n   " +
+                "\uD83C\uDF21 Температура: " + temp_min[5] + "°С  —  " + temp_max[5] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[5] + "%\n" +
+                "⛅️ Погода: " + weather[5] + "\n\n   " +
 
                 "⏰ " + time[6].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[6] + "°С  —  " + temp_max[6] + "°С\n" +
-                "Влажнось: " + humidity[6] + "%\n" +
-                "Погода: " + weather[6] + "\n\n   " +
+                "\uD83C\uDF21 Температура: " + temp_min[6] + "°С  —  " + temp_max[6] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[6] + "%\n" +
+                "⛅️ Погода: " + weather[6] + "\n\n   " +
 
                 "⏰ " + time[7].substring(10, 16) + "  ⏰\n" +
-                "Температура: " + temp_min[7] + "°С  —  " + temp_max[7] + "°С\n" +
-                "Влажнось: " + humidity[7] + "%\n" +
-                "Погода: " + weather[7];
+                "\uD83C\uDF21 Температура: " + temp_min[7] + "°С  —  " + temp_max[7] + "°С\n" +
+                "\uD83D\uDCA6 Влажнось: " + humidity[7] + "%\n" +
+                "⛅️ Погода: " + weather[7];
     }
 }
