@@ -17,19 +17,6 @@ import java.util.*;
 
 
 public class Bot extends TelegramLongPollingBot {
-    public static void main(String[] args) {
-        ApiContextInitializer.init();   //иницилизация АПИ
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(); // создаем объект телеграмАПИ
-
-        // Регистариця бота
-        try {
-            telegramBotsApi.registerBot(new Bot());
-
-        } catch (TelegramApiRequestException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     // Метод для отправки простого сообщения
     public void sendMsg(Message message, String text) {
@@ -58,6 +45,24 @@ public class Bot extends TelegramLongPollingBot {
 
         } catch (TelegramApiException e) {
             e.printStackTrace();
+        }
+    }
+
+    // метод для рассылки погоды
+    public void sendWeather() throws IOException {
+        Model model = new Model();
+        HashMap map = File_Writer.Read();
+        ArrayList<String> val = new ArrayList<>(map.values());
+        ArrayList<String> key = new ArrayList<>(map.keySet());
+        for (int i = 0; i < map.size(); i++){
+            SendMessage sendMessage = new SendMessage();
+            sendMessage.setText(Weather.getWeatherDay(val.get(i), model));
+            sendMessage.setChatId(key.get(i));
+            try {
+                execute(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
     }
 
