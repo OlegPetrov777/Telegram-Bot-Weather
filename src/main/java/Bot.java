@@ -97,8 +97,12 @@ public class Bot extends TelegramLongPollingBot {
                     case "Проверить подписку":
                         //sendMsg(message, File_Writer.Check(String.valueOf(message.getChatId())));
                         try {
-                            execute(sendInlineKeyBoardMessage_2(update.getMessage().getChatId(),
-                                    File_Writer.Check(String.valueOf(message.getChatId()))));
+                            if (Objects.equals(File_Writer.Check(String.valueOf(message.getChatId())).split(" ")[0], "Ты")) {
+                                execute(sendInlineKeyBoardMessage_2(update.getMessage().getChatId(),
+                                        File_Writer.Check(String.valueOf(message.getChatId()))));
+                            } else {
+                                sendMsg(message, File_Writer.Check(String.valueOf(message.getChatId())));
+                            }
                         } catch (TelegramApiException e) {
                             e.printStackTrace();
                         }
